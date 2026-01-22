@@ -1,0 +1,413 @@
+/* ============================================
+   RESET Y CONFIGURACIÓN BASE
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --success-gradient: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    --dark-bg: #0f0f23;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-light: #ffffff;
+    --text-muted: #a0aec0;
+    --shadow-glow: 0 8px 32px rgba(102, 126, 234, 0.3);
+    --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--dark-bg);
+    color: var(--text-light);
+    line-height: 1.8;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.8s ease-out;
+    margin-bottom: 2rem;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--primary-gradient);
+}
+
+/* ============================================
+   ENLACE DE REGRESO
+   ============================================ */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.back-link:hover {
+    background: var(--primary-gradient);
+    transform: translateX(-5px);
+    box-shadow: var(--shadow-glow);
+    border-color: transparent;
+}
+
+/* ============================================
+   TÍTULOS
+   ============================================ */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--secondary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--secondary-gradient);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* ============================================
+   CAJA DE CONCEPTO
+   ============================================ */
+.concept-box {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    border-left: 4px solid #667eea;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.concept-box::before {
+    content: '💡';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+.concept-box:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.25) 0%, rgba(118, 75, 162, 0.25) 100%);
+    transform: translateX(5px);
+    box-shadow: -5px 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.concept-box p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* ============================================
+   PÁRRAFOS
+   ============================================ */
+p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+}
+
+/* ============================================
+   LISTAS
+   ============================================ */
+ul {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding-left: 0;
+}
+
+ul li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    transition: all 0.3s ease;
+}
+
+ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+ul li:hover {
+    color: var(--text-light);
+    transform: translateX(5px);
+}
+
+ul li:hover::before {
+    color: #4facfe;
+    transform: scale(1.2);
+}
+
+ul li strong {
+    color: var(--text-light);
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #4facfe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   SECCIONES DE ENLACES (PROYECTOS)
+   ============================================ */
+body > div:not(.container) {
+    max-width: 900px;
+    margin: 2rem auto;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+body > div:not(.container)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--success-gradient);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+body > div:not(.container):hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(132, 250, 176, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(132, 250, 176, 0.2);
+}
+
+body > div:not(.container):hover::before {
+    transform: scaleX(1);
+}
+
+body > div:not(.container):nth-child(2)::before {
+    background: var(--accent-gradient);
+}
+
+body > div:not(.container):nth-child(2):hover {
+    border-color: rgba(79, 172, 254, 0.5);
+    box-shadow: 0 10px 30px rgba(79, 172, 254, 0.2);
+}
+
+/* ============================================
+   ENLACES DE PROYECTOS
+   ============================================ */
+body > div:not(.container) a {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: var(--success-gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(132, 250, 176, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+body > div:not(.container):nth-child(2) a {
+    background: var(--accent-gradient);
+    box-shadow: 0 4px 15px rgba(79, 172, 254, 0.4);
+}
+
+body > div:not(.container) a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.5s ease;
+}
+
+body > div:not(.container) a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(132, 250, 176, 0.6);
+}
+
+body > div:not(.container):nth-child(2) a:hover {
+    box-shadow: 0 6px 25px rgba(79, 172, 254, 0.6);
+}
+
+body > div:not(.container) a:hover::before {
+    left: 100%;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0.5rem;
+    }
+
+    .container {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .concept-box {
+        padding: 1.2rem;
+    }
+
+    body > div:not(.container) {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.5rem;
+    }
+
+    body > div:not(.container) a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ============================================
+   SCROLL SUAVE
+   ============================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============================================
+   ANIMACIONES ADICIONALES
+   ============================================ */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.concept-box::before {
+    animation: pulse 2s ease-in-out infinite;
+}
